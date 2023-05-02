@@ -10,8 +10,11 @@ import {
   Tag,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { capitalizeFirstLetter } from '../helpers/Utils'
 
-export default function CardWithImage({ id, name, email, age }) {
+export default function CardWithImage({ id, name, email, age, gender }) {
+  const genderForPic = gender === "MALE" ? "men" : "women"
+
   return (
     <Center py={6}>
       <Box
@@ -25,7 +28,7 @@ export default function CardWithImage({ id, name, email, age }) {
           h={'120px'}
           w={'full'}
           src={
-            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+            'https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
           }
           objectFit={'cover'}
         />
@@ -33,7 +36,7 @@ export default function CardWithImage({ id, name, email, age }) {
           <Avatar
             size={'xl'}
             src={
-              `https://randomuser.me/api/portraits/men/${id}.jpg`
+              `https://randomuser.me/api/portraits/${genderForPic}/${id}.jpg`
             }
             alt={'Customer'}
             css={{
@@ -50,6 +53,7 @@ export default function CardWithImage({ id, name, email, age }) {
             </Heading>
             <Text color={'gray.500'}>{email}</Text>
             <Text color={'black'}><strong>Age</strong>: {age}</Text>
+            <Text color={'black'}><strong>Gender</strong>: {capitalizeFirstLetter(gender)}</Text>
           </Stack>
         </Box>
       </Box>
