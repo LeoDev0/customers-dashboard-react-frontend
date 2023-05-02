@@ -18,6 +18,11 @@ export default function CardWithImage({ id, name, email, age, gender }) {
   return (
     <Center py={6}>
       <Box
+        _hover={{
+          transform: 'scale(1.05)',
+          transition: 'transform .2s',          
+        }}
+        transition='transform .2s'
         maxW={'300px'}
         w={'full'}
         bg={useColorModeValue('white', 'gray.800')}

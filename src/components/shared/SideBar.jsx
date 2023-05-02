@@ -40,6 +40,8 @@ const LinkItems = [
     {name: 'Settings', icon: FiSettings},
 ];
 
+const logoUrl = 'https://user-images.githubusercontent.com/40702606/210880158-e7d698c2-b19a-4057-b415-09f48a746753.png'
+
 export default function SidebarWithHeader({children}) {
     const {isOpen, onOpen, onClose} = useDisclosure();
     return (
@@ -87,7 +89,7 @@ const SidebarContent = ({onClose, ...rest}) => {
                 <Image
                     borderRadius='full'
                     boxSize='75px'
-                    src='https://user-images.githubusercontent.com/40702606/210880158-e7d698c2-b19a-4057-b415-09f48a746753.png'
+                    src={logoUrl}
                     alt='Amigoscode'
                 />
                 <CloseButton display={{base: 'flex', md: 'none'}} onClick={onClose}/>
@@ -157,7 +159,12 @@ const MobileNav = ({onOpen, ...rest}) => {
                 fontSize="2xl"
                 fontFamily="monospace"
                 fontWeight="bold">
-                Logo
+                <Image
+                    borderRadius='full'
+                    boxSize='70px'
+                    src={logoUrl}
+                    alt='Amigoscode'
+                />
             </Text>
 
             <HStack spacing={{base: '0', md: '6'}}>
@@ -172,7 +179,8 @@ const MobileNav = ({onOpen, ...rest}) => {
                         <MenuButton
                             py={2}
                             transition="all 0.3s"
-                            _focus={{boxShadow: 'none'}}>
+                            _focus={{boxShadow: 'none'}}
+                            _hover={{color: '#0bc5ea'}}>
                             <HStack>
                                 <Avatar
                                     size={'sm'}
