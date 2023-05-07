@@ -20,7 +20,6 @@ import {
     VStack,
     Image
 } from '@chakra-ui/react';
-
 import {
     FiBell,
     FiChevronDown,
