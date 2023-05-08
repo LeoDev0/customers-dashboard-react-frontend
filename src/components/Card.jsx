@@ -11,8 +11,9 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { capitalizeFirstLetter } from '../helpers/Utils'
+import DeletionDialog from './DeletionDialog'
 
-export default function CardWithImage({ id, name, email, age, gender }) {
+export default function CardWithImage({ id, name, email, age, gender, fetchCustomers }) {
   const genderForPic = gender === "MALE" ? "men" : "women"
 
   return (
@@ -59,6 +60,9 @@ export default function CardWithImage({ id, name, email, age, gender }) {
             <Text color={'gray.500'}>{email}</Text>
             <Text color={'black'}><strong>Age</strong>: {age}</Text>
             <Text color={'black'}><strong>Gender</strong>: {capitalizeFirstLetter(gender)}</Text>
+            <Stack m={2}>
+              <DeletionDialog customerId={id} customerName={name} fetchCustomers={fetchCustomers}/>
+            </Stack>
           </Stack>
         </Box>
       </Box>
