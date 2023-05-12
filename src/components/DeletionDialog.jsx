@@ -7,7 +7,6 @@ import {
   AlertDialogOverlay,
   useDisclosure,
   Button,
-  Stack
 } from '@chakra-ui/react'
 import { useRef } from 'react'
 import { deleteCustomer } from '../services/client.js'

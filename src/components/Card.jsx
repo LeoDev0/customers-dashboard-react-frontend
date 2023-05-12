@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { capitalizeFirstLetter } from '../helpers/Utils'
 import DeletionDialog from './DeletionDialog'
+import UpdateCustomerDrawer from './UpdateCustomerDrawer'
 
 export default function CardWithImage({ id, name, email, age, gender, fetchCustomers }) {
   const genderForPic = gender === "MALE" ? "men" : "women"
@@ -60,8 +61,13 @@ export default function CardWithImage({ id, name, email, age, gender, fetchCusto
             <Text color={'gray.500'}>{email}</Text>
             <Text color={'black'}><strong>Age</strong>: {age}</Text>
             <Text color={'black'}><strong>Gender</strong>: {capitalizeFirstLetter(gender)}</Text>
-            <Stack m={2}>
-              <DeletionDialog customerId={id} customerName={name} fetchCustomers={fetchCustomers}/>
+            <Stack direction={'row'} justify={'center'} spacing={6} p={4}>
+              <Stack>
+                <UpdateCustomerDrawer customerId={id} customer={{name, email, age, gender}} fetchCustomers={fetchCustomers}/>
+              </Stack>
+              <Stack>
+                <DeletionDialog customerId={id} customerName={name} fetchCustomers={fetchCustomers}/>
+              </Stack>
             </Stack>
           </Stack>
         </Box>

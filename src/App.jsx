@@ -1,7 +1,7 @@
 import { Wrap, WrapItem, Spinner, Text } from '@chakra-ui/react'
 import SideBarWithHeader from './components/shared/SideBar'
 import CardWithImage from './components/Card'
-import DrawerForm from './components/DrawerForm'
+import CreateCustomerDrawer from './components/CreateCustomerDrawer'
 import { useEffect, useState } from 'react'
 import { getCustomers } from './services/client'
 import { errorNotification } from './services/notification'
@@ -49,7 +49,7 @@ const App = () => {
   if (error) {
     return (
       <SideBarWithHeader>
-        <DrawerForm fetchCustomers={fetchCustomers}/>
+        <CreateCustomerDrawer fetchCustomers={fetchCustomers}/>
         <Text textAlign={'center'} verticalAlign={'middle'} mt={20}>Oops, there was an error</Text>
       </SideBarWithHeader>
     )
@@ -58,7 +58,7 @@ const App = () => {
   if (customers.length === 0) {
     return (
       <SideBarWithHeader>
-        <DrawerForm fetchCustomers={fetchCustomers}/>
+        <CreateCustomerDrawer fetchCustomers={fetchCustomers}/>
         <Text textAlign={'center'} verticalAlign={'middle'} mt={20}>No customers found</Text>
       </SideBarWithHeader>
     )
@@ -66,7 +66,7 @@ const App = () => {
 
   return (
     <SideBarWithHeader>
-      <DrawerForm fetchCustomers={fetchCustomers}/>
+      <CreateCustomerDrawer fetchCustomers={fetchCustomers}/>
       <Wrap justify={"center"} spacing={"30px"}>
         {customers.map((customer, index) => (
           <WrapItem key={index}>
